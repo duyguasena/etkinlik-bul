@@ -4,9 +4,11 @@ import Navbar from "./components/Navbar";
 
 import Home from "./pages/Home";
 import Events from "./pages/Events";
-import Location from "./pages/Location";
+import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
+import Card from "./pages/CardUI";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -15,8 +17,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/events" element={<Events />} />
-        <Route path="/location" element={<Location />} />
+        <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route Component={NotFound} />
       </Routes>
       <Footer></Footer>
     </div>

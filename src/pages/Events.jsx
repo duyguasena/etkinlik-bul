@@ -1,33 +1,37 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../style/Events.css";
 
 function Events() {
   const [data, setData] = useState([]);
+  const [visible, setVisible] = useState(3);
+
+  function showMoreEvents() {
+    setVisible((data) => (data += 3));
+  }
 
   useEffect(() => {
-    const getData = () => {
-      fetch("https://openapi.izmir.bel.tr/api/ibb/kultursanat/etkinlikler")
-        .then((response) => response.json())
-        .then((response) => setData(response))
-        .catch((error) => console.log(error));
-    };
-    getData();
+    fetch("https://openapi.izmir.bel.tr/api/ibb/kultursanat/etkinlikler")
+      .then((response) => response.json())
+      .then((data) => setData(data));
   }, []);
 
   return (
-    <div className="row-6">
-      {data.map((data) => {
-        return (
-          <div className="card-container" col>
-            <h2 className="card-name">{data.Adi}</h2>
-            <h4 className="card-tür">{data.Tur}</h4>
-            <p>
-              <img className="card-img" src={data.Resim} />
-            </p>
-            <button className="detail-buton">see Detail</button>
-          </div>
-        );
-      })}
+    <div className="events">
+      <h1 className="card-header">EVENTS</h1>
+      <div className="card-container">
+        {data &&
+          data.slice(0, visible).map((data) => (
+            <div className="card">
+              <div className="card-image">
+                <img className="card-image" src={data.Resim}></img>
+              </div>
+              <p className="card-p">{data.Adi}</p>
+            </div>
+          ))}
+      </div>
+      <button onClick={showMoreEvents} className="card-buton">
+        Learn More
+      </button>
     </div>
   );
 }

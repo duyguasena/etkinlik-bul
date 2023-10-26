@@ -1,5 +1,5 @@
 .footer {
-  background-color: rgb(140, 139, 144);
+  background-color: rgb(188, 187, 193);
   display: flex;
   flex-direction: column;
 }
@@ -12,6 +12,7 @@
   width: 100%;
   text-align: center;
   margin-bottom: 2rem;
+  text-decoration: none;
 }
 .footer_links_div {
   width: 150px;
@@ -20,12 +21,12 @@
   justify-content: flex-start;
   flex-direction: column;
   color: white;
-}
-a {
-  color: white;
   text-decoration: none;
-  justify-content: center;
 }
+.title {
+  color: black;
+}
+
 .socialmedia {
   flex-direction: row;
   justify-content: space-between;
@@ -48,6 +49,7 @@ a {
   width: 150;
 }
 .send {
+  width: 100px;
   height: 30px;
   border-radius: 5px;
   margin-top: 10px;

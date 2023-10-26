@@ -22,7 +22,7 @@ function Contact() {
   return (
     <form method="post" onSubmit={handleSubmit}>
       <h1>
-        Contact <span>Us</span>
+        <span>Contact Us</span>
       </h1>
       <input
         type="text"

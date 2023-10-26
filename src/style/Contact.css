@@ -6,6 +6,9 @@ body {
   font-family: "Poppins";
   background-color: #f1eaea;
 }
+h1 {
+  color: black;
+}
 form {
   display: block;
   background-color: #fff;
